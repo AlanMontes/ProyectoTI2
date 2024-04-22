@@ -5,7 +5,7 @@ function App() {
 
   useEffect(() => {
     // Realizar la solicitud GET a la API
-    fetch('http://localhost:8000/primero')
+    fetch('https://backinmoticatec2.onrender.com/primero')
       .then(response => response.json())
       .then(data => {
         setData(data);
