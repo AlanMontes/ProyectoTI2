@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+.header-container {
+    background-color: blue; /* Color de fondo azul */
+    color: white; /* Color de texto blanco */
+    padding: 20px; /* Añade un poco de espacio alrededor del texto */
+    text-align: center; /* Centra el texto horizontalmente */
+  }
+  
+  .header-title {
+    font-size: 2em; /* Tamaño de la fuente */
+    font-family: 'Montserrat', sans-serif; /* Fuente del texto */
+    /* Otros estilos de texto aquí si lo deseas */
+  }
+  
+  .header-container {
+    background-color: blue;
+    color: white;
+    padding: 20px;
+  }
+  
+  .header-content {
+    display: flex; /* Hace que los elementos hijos se coloquen en línea */
+    align-items: center; /* Centra verticalmente los elementos */
+  }
+  
+  .header-image {
+    width: 200px; /* Establece el ancho de la imagen */
+    margin-right: 200px; /* Agrega un poco de espacio entre la imagen y el título */
+  }
+
+
+  .header-container {
+    background-color: blue;
+    color: white;
+    padding: 20px;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-image {
+    margin-right: 0; /* Elimina el margen derecho de la imagen */
+  }
+  
+  .header-title {
+    margin-left: 0; /* Elimina el margen izquierdo del título */
+  }
+
+  .header-container {
+    background-color: blue;
+    color: white;
+    padding: 20px;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Para alinear los elementos a los extremos */
+  }
+  
+  .header-image-es {
+    max-width: 500px; /* Establece el ancho máximo de la imagen */
+  }
+  
+  .header-title {
+    margin-right: 20px; /* Agrega un poco de espacio entre la imagen y el título */
+  }
+  
+  .button-container {
+    display: flex;
+  }
+  
+  .header-button {
+    background-color: navy; /* Color de fondo azul celeste */
+    font-size: 1.3em; /* Tamaño de la fuente */
+    font-family: 'Montserrat', sans-serif; /* Fuente del texto */
+    color: white; /* Color de texto blanco */
+    padding: 10px 20px; /* Ajusta el relleno de los botones */
+    margin-left: 10px; /* Ajusta el margen izquierdo entre los botones */
+  }
+
+  .estacionamiento-container {
+    text-align: center; /* Centra el contenido horizontalmente */
+  }
+  
+  .center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido verticalmente */
+    margin-top: 20px; /* Ajusta el margen superior */
+  }
+  .center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido verticalmente */
+  margin-top: 20px; /* Ajusta el margen superior */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Distribuye los botones al extremo izquierdo y derecho */
+  width: 100%; /* Asegura que el contenedor de botones ocupe todo el ancho disponible */
+}
+
+.header-button-left {
+  margin-right: auto; /* Empuja el botón hacia la izquierda */
+}
+
+.header-button-right {
+  margin-left: auto; /* Empuja el botón hacia la derecha */
+}
+

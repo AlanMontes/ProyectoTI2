@@ -1,31 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import Baños from './baños'; // Importa el componente de Baños
+import Estacionamiento from './estacionamiento'; // Importa el componente de Estacionamiento
+import './Header.css';
 
 function App() {
-  const [data, setData] = useState(null);
+  const [mostrarBaños, setMostrarBaños] = useState(false);
+  const [mostrarEstacionamiento, setMostrarEstacionamiento] = useState(false);
 
-  useEffect(() => {
-    // Realizar la solicitud GET a la API
-    fetch('https://backinmoticatec2.onrender.com/primero')
-      .then(response => response.json())
-      .then(data => {
-        setData(data);
-      })
-      .catch(error => {
-        console.error('Error al obtener datos:', error);
-      });
-  }, []); // Se ejecuta solo una vez al cargar el componente
+  const handleClickBaños = () => {
+    setMostrarBaños(true);
+    setMostrarEstacionamiento(false); // Asegúrate de ocultar el otro componente al mostrar Baños
+  };
+
+  const handleClickEstacionamiento = () => {
+    setMostrarEstacionamiento(true);
+    setMostrarBaños(false); // Asegúrate de ocultar el otro componente al mostrar Estacionamiento
+  };
 
   return (
     <div>
-      <h1>Consumiendo API desde React</h1>
-      {data ? (
-        <div>
-          <p>Respuesta de la API:</p>
-          <pre>{JSON.stringify(data, null, 2)}</pre>
+      <header className="header-container">
+        <div className="header-content">
+          <img src="/logotec.png" alt=" " className="header-image" />
+          <h1 className="header-title">InmotiTEC2</h1>
+          <button className="header-button" onClick={handleClickBaños}>Baños</button>
+          <button className="header-button" onClick={handleClickEstacionamiento}>Estacionamiento Tec2</button>
         </div>
-      ) : (
-        <p>Cargando...</p>
-      )}
+      </header>
+      <div className="body-container">
+        {mostrarBaños && <Baños />} {/* Muestra el componente de Baños si mostrarBaños es true */}
+        {mostrarEstacionamiento && <Estacionamiento />} {/* Muestra el componente de Estacionamiento si mostrarEstacionamiento es true */}
+      </div>
     </div>
   );
 }
