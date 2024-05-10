@@ -50,6 +50,7 @@ function Baños() {
           <h3>Baño hombres edifico B seleccionado</h3>
           <button className="header-button" >Falta papel</button>
           <button className="header-button" >Falta jabón</button>
+          <div><a href=""></a></div>
       </div>
       
       <div style={{ position: 'relative' }}>
