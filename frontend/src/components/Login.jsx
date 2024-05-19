@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-const RoutesearchLogin = process.env.VITE_SEARCHES_LOGIN || "http://localhost:8000/searches/login";
+const RoutesearchLogin = process.env.VITE_SEARCHES_LOGIN;
 
 
 
