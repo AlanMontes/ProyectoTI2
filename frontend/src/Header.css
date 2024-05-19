@@ -354,6 +354,18 @@ font-size: 1vw;
 }
 .POS:hover{ background-color: rgba(240, 248, 255, 0.507);}
 
+.Alumnos1{
+  position: absolute;
+  left: 71.6%;
+  top:  5.9%;
+  width: 9.57%;
+  height: 30.2%;
+  z-index: 2; 
+}
+.Alumnos1:active{
+  background-color: rgba(240, 248, 255, 0.507);
+}
+
 /* DIV DE SELECCIÓN DE EDIFICIO */
 .div-edificio-seleccionado{
   position: fixed; 
@@ -621,4 +633,48 @@ padding-bottom: 3%;
 
 .btn-date:active{
   background-color: rgba(0, 0, 122, 0.144);
+}
+
+
+
+/* ESTACIONAMIENTOS ------------------------------------------- */
+.nav-content-estacionamiento{
+  width: 100%;
+  height: 85%;
+  border-radius: 1.5vw;
+  background-color: rgba(0, 0, 0, 0.1);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+}
+
+.cajones-content{
+  width: 100%;
+  flex: 1; 
+  padding: 4%;
+  box-sizing: border-box; 
+
+  display: flex; 
+}
+
+.cajon{
+  flex: 1;
+  margin: 0%;
+  background-color: black;
+  border: 1.5vw solid rgba(255, 255, 0, 0.712);
+  border-top: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cajon-disp{
+  flex:1;
+  height: 100%;
+
+  display: flex;
+  align-items: center; 
+  justify-content: center;
 }

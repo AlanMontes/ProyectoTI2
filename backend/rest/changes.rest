@@ -28,5 +28,17 @@ Content-Type: application/json
 
 {
     "id_estacionamiento": "1",
-    "cajones": "{0,0}"
+    "cajones": "{1,0,1,0}"
+}
+
+
+
+###
+#ACTUALIZAR ESTACIONAMIENTOS
+PATCH https://backinmoticatec2.onrender.com/changes/estacionamientos
+Content-Type: application/json
+
+{
+    "id_estacionamiento": "1",
+    "cajones": "{1,1}"
 }
