@@ -1,22 +1,107 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+#root {
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 
 .body-gen{
-  width: 100%;
+   width: 100%;
   height: 100%;
-
-
+  padding-bottom: 10%;
 }
+
+/* LOGIN ---------------------------------- */
+.content-login{
+background-color: aliceblue;
+border-radius: 1.5vw;
+margin-top: 3.5%;
+margin-left: 30%;
+width: 40%;
+height: 60%;
+
+box-shadow: 0px 10px 4vw black;
+border: 3px solid;
+border-color: rgba(9, 9, 61, 0.158);
+box-sizing: border-box;
+padding: 5%;
+padding-top: 2%;
+
+display: grid;
+grid-template-rows: 18% 14% 14% 14% 14% 30%; 
+grid-gap: 1;
+}
+
+.login-title{
+  color: rgb(0, 0, 122);
+  font-size: 3vw; 
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+.layout-login{
+  font-size: 1.2vw; 
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+  align-self:last baseline;
+  box-sizing: border-box;
+  padding-left: 25%;
+}
+
+.input-login{
+width: 50%;
+height: 70%;
+box-sizing: border-box;
+padding: 2%;
+align-self: center;
+justify-self: center;
+border-radius: .5vw;
+font-size: 1vw;
+}
+
+#button-login{
+  justify-self: center;
+  padding: 2%;
+  background-color: rgb(0, 0, 112);
+  color: aliceblue;
+  text-align: center;
+  width: 25%;
+  align-self: last baseline;
+  border-radius: .5vw;
+}
+
+#button-login:hover{
+  background-color: rgba(0, 0, 112, 0.795);
+}
+
+#button-login:active{
+  background-color: rgb(3, 3, 88);
+}
+/* LOGIN --------------------------------- */
 
 .header{
   background-color: rgb(0, 0, 122);
   padding: 1%;
   display: grid;
-  grid-template-columns: 10% 35% 20% 30%; /* Tamaños específicos para cada columna */
+  grid-template-columns: 10% 25% 20% 30% 10%; /* Tamaños específicos para cada columna */
   grid-gap: 1;
 
   justify-items: center;
   align-items: center;
+}
+
+#header-login{
+  display: grid;
+  grid-template-columns: 20%  10%  35%  30%; /* Tamaños específicos para cada columna */
+  grid-gap: 1;
 }
 
 .logotec{
@@ -36,7 +121,6 @@
   font-size: 2vw; 
   font-family: 'Montserrat', sans-serif; 
   color: white; 
-  padding: 10px 20px; 
 } 
 
 .button-baños:hover{
@@ -72,6 +156,7 @@
   background-color: aliceblue;
   border-radius: 1.5vw;
   box-shadow: 0px 0px 1vw black;
+  margin-bottom: 2%;
 }
 
 .content-titles-baños{
@@ -92,6 +177,7 @@
   font-family: 'Montserrat', sans-serif; 
   width: 15%;
   height: 100%;
+  font-size: 1.2vw;
   text-align: center;
   justify-self: center;
 }
@@ -113,10 +199,426 @@
 .instruction{
   margin-left: 20%;
   justify-self: left;
+  font-size: 1.2vw;
+}
+
+
+/* MAPA------------------------------------------------------------------ */
+.center-content{
+  width: auto;
+  height: auto;
+  padding-bottom: 1%;
 }
 
 .maps{
   margin-top: 1%;
   display: flex;
   justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.image-map{
+  width: 100%;
+  height: 100%;
+}
+
+.ES {
+  position: absolute;
+  left: 14.64%;
+  top: 7.80%;
+  width: 12.06%;
+  height: 14%;
+  z-index: 2; 
+}
+.ES:hover{ background-color: rgba(240, 248, 255, 0.507);}
+
+.biblioteca {
+  position: absolute;
+  left: 14.52%;
+  top: 26.09%;
+  width: 10.46%;
+  height: 18.18%;
+  z-index: 2; 
+}
+.biblioteca:hover{ background-color: rgba(240, 248, 255, 0.507);}
+
+.EF {
+  position: absolute;
+  left: 27.32%;
+  top: 24.42%;
+  width: 12.43%;
+  height: 13.36%;
+  z-index: 2; 
+}
+.EF:hover{ background-color: rgba(240, 248, 255, 0.507);}
+
+.EB {
+  position: absolute;
+  left: 56.6%;
+  top: 16.8%;
+  width: 12.06%;
+  height: 13.73%;
+  z-index: 2; 
+}
+.EB:hover{ background-color: rgba(240, 248, 255, 0.507);}
+
+.ED {
+  position: absolute;
+  left: 32.49%;
+  top: 42.60%;
+  width: 9.35%;
+  height: 9.65%;
+  z-index: 2; 
+}
+.ED:hover{ background-color: rgba(240, 248, 255, 0.507);}
+
+.EP {
+  position: absolute;
+  left: 21.04%;
+  top: 49%;
+  width: 7.51%;
+  height: 10%;
+  z-index: 2; 
+}
+.EP:hover{ background-color: rgba(240, 248, 255, 0.507);}
+
+.EG {
+  position: absolute;
+  left: 59.93%;
+  top: 53.04%;
+  width: 9.97%;
+  height: 9.46%;
+  z-index: 2; 
+}
+.EG:hover{ background-color: rgba(240, 248, 255, 0.507);}
+
+.GYM {
+  position: absolute;
+  left: 88.23%;
+  top: 36%;
+  width: 12.31%;
+  height: 14.1%;
+  z-index: 2; 
+}
+.GYM:hover{ background-color: rgba(240, 248, 255, 0.507);}
+
+.ADMI {
+  position: absolute;
+  left: 51.19%;
+  top: 76%;
+  width: 10.83%;
+  height: 12.8%;
+  z-index: 2; 
+}
+.ADMI:hover{ background-color: rgba(240, 248, 255, 0.507);}
+
+
+.EM {
+  position: absolute;
+  left: 28.21%;
+  top: 6%;
+  width: 23.93%;
+  height: 12.77%;
+  z-index: 2; 
+}
+.EM:hover{ background-color: rgba(240, 248, 255, 0.507);}
+
+.EO {
+  position: absolute;
+  left: 28.04%;
+  top: 36.46%;
+  width: 24.29%;
+  height: 9.54%;
+  z-index: 2; 
+}
+.EO:hover{ background-color: rgba(240, 248, 255, 0.507);}
+
+.ET {
+  position: absolute;
+  left: 54.11%;
+  top: 52%;
+  width: 17.14%;
+  height: 14.31%;
+  z-index: 2; 
+}
+.ET:hover{ background-color: rgba(240, 248, 255, 0.507);}
+
+.POS {
+  position: absolute;
+  left: 71.43%;
+  top: 73.38%;
+  width: 19.29%;
+  height: 16%;
+  z-index: 2; 
+}
+.POS:hover{ background-color: rgba(240, 248, 255, 0.507);}
+
+/* DIV DE SELECCIÓN DE EDIFICIO */
+.div-edificio-seleccionado{
+  position: fixed; 
+  top: 10%;
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 70%; 
+  height: 83%; 
+  background-color: rgba(255, 255, 255, 0.975); 
+  border-radius: 1.5vw;
+  z-index: 1000; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0px 10px 4vw black;
+  border-color: rgb(9, 9, 61);
+  border: 3px solid;
+}
+
+.content-nav-edificio{
+  width: 100%;
+  height: 100%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+.content-nav-tittle{
+  width: 100%;
+  height: 15%;
+  display: grid;
+  grid-template-columns: 90% 10%;
+
+  border-bottom: 3px solid;
+  border-color: rgb(9, 9, 61);
+}
+
+.nav-tittle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10%;
+  color: rgb(0, 0, 122);
+  font-size: 3vw; 
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav-xIcon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-nav-body{
+  width: 100%;
+  height: 85%;
+  border-radius: 1.5vw;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.nav-instructions{
+  height: 9%;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  padding: 1%;
+}
+
+.nav-genders{
+height: 50%;
+
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+
+.nav-selection{
+  margin-top: 2%;
+  height: 10%;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5vw;
+
+}
+
+.nav-buttons{
+  height: 24.5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.male{
+justify-self: center;
+align-self: center;
+margin-left: 25%;
+width: 50%;
+height: 100%;
+border: 6.5px solid;
+border-color: blue;
+border-radius: 1.5vw;
+background-color: rgba(0, 0, 0, 0.479);
+
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.male:hover{
+  background-color: rgba(0, 0, 255, 0.233);
+}
+
+.male:active{
+  background-color: rgba(0, 0, 255, 0.500);
+}
+
+.female{
+justify-self: center;
+align-self: center;
+margin-right: 25%;
+width: 50%;
+height: 100%;
+border: 6.5px solid;
+border-color: pink;
+border-radius: 1.5vw;
+background-color: rgba(0, 0, 0, 0.479);
+
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.female:hover{
+  background-color: rgba(255, 192, 203, 0.233);
+}
+
+.female:active{
+  background-color: rgba(255, 192, 203, 0.5);
+}
+
+.nav-button{
+  margin-top: 4%;
+  justify-self: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25vw;
+  border: 4px solid;
+  border-color: black;
+  border-radius: 1.5vw;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(0, 0, 0, 0.433);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-button:hover{
+  background-color: rgba(0, 0, 0, 0.150);
+}
+
+.nav-button:active{
+  background-color: rgba(0, 0, 0, 0.850);
+}
+
+
+
+.admin-baños-content{
+  
+  background-color: aliceblue;
+  width: 90%;
+  height: auto;
+  border-radius: 1.5vw;
+  margin-top: 2.5%;
+  margin-left: 5%;
+  box-shadow: 0px 10px 4vw black;
+
+  display: flow;
+
+
+  box-sizing: border-box;
+  padding: 2%;
+  
+
+}
+
+.admin-baños-title{
+  color: rgb(0, 0, 122);
+  font-size: 3vw; 
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  padding-top: 3%;
+  align-self: center;
+  margin-bottom: 2%;
+}
+
+.admin-baños-reportados{
+    background-color: rgb(189, 186, 186);
+    height: auto;
+    width: 90%;
+
+    align-self: center;
+    justify-self: center;
+    border-radius: 1.5vw;
+    margin: 1%;
+
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%; 
+    grid-gap: 1;
+}
+
+
+#admin-baños-reportados-sub, #admin-baños-reportados-sub-jabon, #admin-baños-reportados-sub-papel{
+  justify-self: center;
+  align-self: center;
+
+  color: rgb(0, 0, 122);
+  font-size: 1.5vw; 
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+#admin-baños-reportados-sub-jabon:hover, #admin-baños-reportados-sub-papel:hover {
+  background-color: rgba(0, 0, 122, 0.233);
+}
+
+.admin-baños-content-reportados{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#btn-date{
+margin: 0%;
+padding: 0%;
+padding-top: 0%;
+
+box-sizing: border-box;
+padding-bottom: 3%;
+}
+
+.input-date{
+  padding: 1%; 
+  border: 1px solid #ccc; 
+  border-radius: 1vw; 
+  font-size: 1vw; 
+  width: 20%; 
+  color: rgb(0, 0, 122);
+}
+
+.btn-date{
+  background-color: rgb(0, 0, 122);
+  padding: 1%; 
+  border: 1px solid #ccc; 
+  border-radius: 1vw; 
+  font-size: 1vw; 
+  width: 20%; 
+  color:aliceblue;
+}
+
+.btn-date:hover{
+  background-color: rgba(0, 0, 122, 0.836);
+}
+
+.btn-date:active{
+  background-color: rgba(0, 0, 122, 0.144);
 }
