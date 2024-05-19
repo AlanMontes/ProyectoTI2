@@ -1,0 +1,32 @@
+###
+#REPORTAR UN BAÑO
+PATCH http://localhost:8000/changes/reporte
+Content-Type: application/json
+
+{
+    "baño": "M1",
+    "genero": "female",
+    "tiporeporte": "jabon",
+    "idusuario": "1"
+}
+
+###
+#SURTIR BAÑO
+PATCH http://localhost:8000/changes/surtido
+Content-Type: application/json
+
+{
+    "id_baño": "2",
+    "genero": "female",
+    "tiporeporte": "jabon"
+}
+
+###
+#ACTUALIZAR ESTACIONAMIENTOS
+PATCH http://localhost:8000/changes/estacionamientos
+Content-Type: application/json
+
+{
+    "id_estacionamiento": "1",
+    "cajones": "{0,0}"
+}

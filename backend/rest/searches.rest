@@ -1,0 +1,44 @@
+###
+#BUSCAR REPORTE
+POST http://localhost:8000/searches/reporte
+Content-Type: application/json
+
+{
+    "baño": "M1"
+}
+
+###
+#BUSCAR BAÑOS PENDIENTES
+GET http://localhost:8000/searches/pendientes
+
+###
+#BUSCAR REGISTROS DE BITACORA
+GET http://localhost:8000/searches/bitacora
+
+###
+#BUSCAR REGISTROS DE BITACORA
+POST http://localhost:8000/searches/bitacoraFecha
+Content-Type: application/json
+
+{
+    "date": "2024-05-15"
+}
+
+###
+#Validar usuario
+POST http://localhost:8000/searches/login
+Content-Type: application/json
+
+{
+    "nocontrol": "20550395",
+    "pass": "123"
+}
+
+###
+#BUSCAR CAJONES DE ESTACIONAMIENTO
+POST http://localhost:8000/searches/estacionamiento
+Content-Type: application/json
+
+{
+    "idestacionamiento": "1"
+}
