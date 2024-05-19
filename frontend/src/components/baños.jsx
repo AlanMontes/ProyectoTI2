@@ -40,8 +40,8 @@ function Baños() {
     
     <div className='baños-container'>
           <div className='content-titles-baños'>
-            <h2 style={{fontSize:"2.5vw", marginTop:"1%", marginBottom:".5%"}}>Calidad en los Baños</h2>
-            <h3 style={{height:"20%",marginTop:"0",marginBottom:"1%", fontSize:"1.5vw"}}>Ayudanos a reportar cualquier falta de papel o jabón en cualquiera de los baños de nuestra institución</h3>
+            <h2 className='h2'>Calidad en los Baños</h2>
+            <h3 className='h3'>Ayudanos a reportar cualquier falta de papel o jabón en cualquiera de los baños de nuestra institución</h3>
             <div className="cont-instructions">
                 <div className='instructions' onClick={hideInstructions}>Ver instrucciones</div>
             </div>

@@ -35,11 +35,21 @@ function Inicio() {
   return (
     <div className='body-gen'>
       <div className="header">
+        <div>
               <img src="/logotec.png" alt=" " className="logotec" />
-              <h1 className="title">InmotiTEC2</h1>
+        </div>
+        <div>
+              <h1 className="title"  id="title">InmotiTEC2</h1>
+        </div>
+        <div>
               <button className="button-baños" onClick={handleClickBaños}>Gestión de Baños</button>
-              <button className="button-estacionamiento" onClick={handleClickEstacionamiento}>Estacionamientos disponibles</button>
-              <button className="button-baños" onClick={handleClickExit}>Salir</button>
+        </div>
+        <div>
+         <button className="button-estacionamiento" onClick={handleClickEstacionamiento}>Estacionamientos disponibles</button>
+         </div>
+         <div>
+        <button className="button-salir" onClick={handleClickExit}>Salir</button>
+          </div> 
       </div>
 
       <div className="body-container">

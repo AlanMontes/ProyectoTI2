@@ -4,6 +4,9 @@ import male  from "../person-solid.svg"
 import female  from "../person-dress-solid.svg"
 import { useState } from 'react';
 import { useEffect } from 'react';
+const RoutesearchReporte = process.env.VITE_SEARCHES_REPORTE || "http://localhost:8000/searches/reporte";
+const RoutechangeReporte = process.env.VITE_CHANGES_REPORTE || "http://localhost:8000/changes/reporte";
+
 
 function NavBaño(props) {
 
@@ -62,7 +65,7 @@ function NavBaño(props) {
           baño: (edificio)
         };
             try {
-              const response = await fetch("http://localhost:8000/searches/reporte", {
+              const response = await fetch(`${RoutesearchReporte}`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json'
@@ -146,7 +149,7 @@ function NavBaño(props) {
             idusuario: id.idusuario
           };
           try {
-            const response = await fetch("http://localhost:8000/changes/reporte", {
+            const response = await fetch(`${RoutechangeReporte}`, {
               method: 'PATCH',
               headers: {
                 'Content-Type': 'application/json'

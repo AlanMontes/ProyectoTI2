@@ -3,6 +3,7 @@ import xIcon from "../circle-xmark-solid.svg";
 import v from "../good.svg";
 import carro from "../carro.png";
 import { useEffect, useState } from 'react';
+const RoutesearchEstacionamiento = process.env.VITE_SEARCHES_ESTACIONAMIENTO || "http://localhost:8000/searches/estacionamiento";
 
 function NavEstacionamiento(props) {
 
@@ -20,7 +21,7 @@ function NavEstacionamiento(props) {
           idestacionamiento: "1"
         };
             try {
-              const response = await fetch("http://localhost:8000/searches/estacionamiento", {
+              const response = await fetch(`${RoutesearchEstacionamiento}`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json'

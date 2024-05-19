@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from 'react';
+const RoutesearchBitacoraFecha = process.env.VITE_SEARCHES_BITACORAFECHA  || "http://localhost:8000/searches/bitacoraFecha";
 
 function Bitacora() {
+  var state = null;
   const [reportes, setReportes] = useState([]);
-  const [fechaSeleccionada, setFechaSeleccionada] = useState(null);
+  const [fechaSeleccionada, setFechaSeleccionada] = useState(state);
 
    useEffect(() => {
-      if (fechaSeleccionada) {
+
+      const intervalId = setInterval(() => {
+        if (fechaSeleccionada) {
           fetchreportes();
+          state = [];
       }
+      }, 500);
+  
+      return () => clearInterval(intervalId);
+
   }, [fechaSeleccionada]);
 
   const fetchreportes = async () => {
@@ -15,7 +24,7 @@ function Bitacora() {
               date: fechaSeleccionada
             };
             try {
-              const response = await fetch("http://localhost:8000/searches/bitacoraFecha", {
+              const response = await fetch(`${RoutesearchBitacoraFecha}`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json'

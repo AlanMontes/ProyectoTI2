@@ -4,6 +4,7 @@ import { useState } from 'react';
 import tec22 from '../Estacionamientoizquierda.svg';
 import tec2 from '../Estacionamientoderecha.svg';
 import NavEstacionamiento from './NavEstacionamiento';
+const RoutesearchDispEstacionamientos = process.env.VITE_SEARCHES_DISPESTACIONAMIENTO || "http://localhost:8000/searches/dispestacionamiento";
 
 
 function Estacionamiento() {
@@ -32,7 +33,7 @@ function Estacionamiento() {
       idestacionamiento: "1"
     };
         try {
-          const response = await fetch("http://localhost:8000/searches/dispestacionamiento", {
+          const response = await fetch(`${RoutesearchDispEstacionamientos}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -82,8 +83,8 @@ function Estacionamiento() {
   return (
     <div className='baños-container'>
           <div className='content-titles-baños'>
-            <h2 style={{fontSize:"2.5vw", marginTop:"1%", marginBottom:".5%"}}>Estacionamientos</h2>
-            <h3 style={{height:"20%",marginTop:"0",marginBottom:"1%", fontSize:"1.5vw"}}>Identifica los cajones libres en los distintos estacionamientos del instituto</h3>
+            <h2 className="h2">Estacionamientos</h2>
+            <h3 className='h3' >Identifica los cajones libres en los distintos estacionamientos del instituto</h3>
             <div className="cont-instructions">
                 <div className='instructions' onClick={hideInstructions}>Ver instrucciones</div>
             </div>
