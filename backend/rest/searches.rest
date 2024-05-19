@@ -42,3 +42,12 @@ Content-Type: application/json
 {
     "idestacionamiento": "1"
 }
+
+###
+#BUSCAR DISPONIBILIDAD DE ESTACIONAMIENTO
+POST http://localhost:8000/searches/dispestacionamiento
+Content-Type: application/json
+
+{
+    "idestacionamiento": "1"
+}

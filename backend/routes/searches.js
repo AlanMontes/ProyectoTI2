@@ -88,6 +88,29 @@ router.post('/estacionamiento', async (req, res) => {
     } 
 });
 
+//REGISTRO ESTACIONAMIENTOS VACIOS
+router.post('/dispestacionamiento', async (req, res) => {
+    try{
+    const idestacionamiento = req.body.idestacionamiento;
+            try {                                   
+                const query1 = await itemsPool.query("select cajones from estacionamientos where id_estacionamiento = $1;",[idestacionamiento]);                
+                let array = (query1.rows[0].cajones);
+                let disponibilidad;
+                if(array.includes(0)){
+                    disponibilidad = true;
+                }else{
+                    disponibilidad = false;
+                }
+                res.status(200).json(disponibilidad);
+            } catch (error) {
+                console.error('Error al obtener los registros:', error);
+                res.status(500).json({"message":"Error al obtener los registros"});
+            }  
+    }catch(error){
+        res.status(500).json({"message":"Error interno del servidor al obtener cabecera de datos"});
+    } 
+});
+
 //VALIDAR USUARIO
 router.post('/login', async (req, res) => {
     const nocontrol = req.body.nocontrol;

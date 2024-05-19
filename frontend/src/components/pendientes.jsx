@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+const RoutesearchPendientes = process.env.VITE_SEARCHES_PENDIENTES || "http://localhost:8000/searches/pendientes";
+const RoutechangesSurtido = process.env.VITE_CHANGES_SURTIR || "http://localhost:8000/changes/surtido";
+
 
 function Pendientes() {
 
@@ -10,7 +13,7 @@ function Pendientes() {
 
   const fetchreportes = async () => {
     try {
-      const response = await fetch("http://localhost:8000/searches/pendientes");
+      const response = await fetch(`${RoutesearchPendientes}`);
       if (!response.ok) {
         throw new Error('Hubo un problema al obtener los datos');
       }
@@ -57,7 +60,7 @@ function Pendientes() {
             tiporeporte: tipo
           };
               try {
-                const response = await fetch("http://localhost:8000/changes/surtido", {
+                const response = await fetch(`${RoutechangesSurtido}`, {
                   method: 'PATCH',
                   headers: {
                     'Content-Type': 'application/json'

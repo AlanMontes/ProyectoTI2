@@ -87,6 +87,17 @@ font-size: 1vw;
 }
 /* LOGIN --------------------------------- */
 
+
+.button-salir{
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  background-color: navy;
+  margin-left: 15%;
+  width: 100%;
+  font-size: 2vw;
+  border-radius: 1.5vw;
+}
+
 .header{
   background-color: rgb(0, 0, 122);
   padding: 1%;
@@ -121,6 +132,7 @@ font-size: 1vw;
   font-size: 2vw; 
   font-family: 'Montserrat', sans-serif; 
   color: white; 
+  border-radius: 1.5vw;
 } 
 
 .button-baños:hover{
@@ -134,6 +146,7 @@ font-size: 1vw;
   font-family: 'Montserrat', sans-serif; 
   color: white; 
   padding: 10px 20px; 
+  border-radius: 1.5vw;
 }
 
 .button-estacionamiento:hover{
@@ -166,6 +179,19 @@ font-size: 1vw;
 
   border-bottom: 1px solid;
   border-color: rgba(0, 0, 0, 0.24);
+}
+
+.h2{
+  font-size: 2.5vw; 
+  margin-top: 1%; 
+  margin-bottom: 0.5%;
+}
+
+.h3{
+  height: 20%; 
+  margin-top: 0px; 
+  margin-bottom: 1%; 
+  font-size: 1.5vw;
 }
 
 .cont-instructions{
@@ -353,6 +379,18 @@ font-size: 1vw;
   z-index: 2; 
 }
 .POS:hover{ background-color: rgba(240, 248, 255, 0.507);}
+
+.Alumnos1{
+  position: absolute;
+  left: 71.6%;
+  top:  5.9%;
+  width: 9.57%;
+  height: 30.2%;
+  z-index: 2; 
+}
+.Alumnos1:active{
+  background-color: rgba(240, 248, 255, 0.507);
+}
 
 /* DIV DE SELECCIÓN DE EDIFICIO */
 .div-edificio-seleccionado{
@@ -621,4 +659,197 @@ padding-bottom: 3%;
 
 .btn-date:active{
   background-color: rgba(0, 0, 122, 0.144);
+}
+
+
+
+/* ESTACIONAMIENTOS ------------------------------------------- */
+.nav-content-estacionamiento{
+  width: 100%;
+  height: 85%;
+  border-radius: 1.5vw;
+  background-color: rgba(0, 0, 0, 0.1);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+}
+
+.cajones-content{
+  width: 100%;
+  flex: 1; 
+  padding: 4%;
+  box-sizing: border-box; 
+
+  display: flex; 
+}
+
+.cajon{
+  flex: 1;
+  margin: 0%;
+  background-color: black;
+  border: 1.5vw solid rgba(255, 255, 0, 0.712);
+  border-top: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cajon-disp{
+  flex:1;
+  height: 100%;
+
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  /* LOGIN ------------------------------------------------------------------------ */
+  #header-login{
+    display: grid;
+    grid-template-columns: 0%  45%  40%  0%; /* Tamaños específicos para cada columna */
+    grid-gap: 1;
+  }
+
+  .title{
+    font-size: 7vw;
+  }
+
+  .content-login{
+    margin-top: 20%;
+    margin-left: 10%;
+    width: 80%;
+    height: 40%;
+  }
+
+  .login-title{
+      font-size: 8vw;
+  }
+
+  .layout-login{
+    font-size: 4.5vw;
+    padding-left: 20%;
+  }
+
+  .input-login{
+    font-size: 4.5vw;
+  }
+
+  
+  /* PRINCIPAL ------------------------------------------------------------------------ */
+  .header{
+    grid-template-columns: 15% 25% 20% 20% 20%;
+    padding-bottom:3%;
+  }
+
+  #title{
+    font-size: 4vw;
+  }
+
+  .button-baños{
+    margin-left: 15%;
+    width: 70%;
+    font-size: 2vw;
+  }
+  
+  .button-salir{
+    margin-left: 15%;
+    width: 100%;
+    font-size: 2vw;
+  }
+
+  .button-estacionamiento{
+    margin: 10%;
+    width: 100%;
+    font-size: 2vw;
+    padding: 0%;
+    box-sizing: border-box;
+  }
+
+  .h2{
+      font-size: 5vw;
+  }
+  
+  .h3{
+    font-size: 3vw;
+  }
+
+  .instructions{
+    font-size: 2.5vw;
+  }
+  .instruction{
+    font-size: 2.2vw;
+    margin-left: 2%;
+    text-align: justify;
+  }
+
+  .baños-container{
+    margin-top: 8%;
+  }
+
+  .maps{
+    flex-direction: column;
+  }
+
+  .div-edificio-seleccionado{
+    top:20%;
+    width: 80%;
+    height: 50%;
+  }
+  .nav-tittle{
+    font-size: 4.8vw;
+  }
+
+  .nav-instructions{
+    font-size: 4vw;
+    margin-bottom: 3%;
+  }
+
+  .nav-selection{
+    margin-top: 5%;
+    font-size: 3.5vw;
+  }
+
+
+  .nav-button{
+    width: 80%;
+    font-size: 3vw;
+    box-sizing: border-box;
+    padding: 10%;
+  }
+
+  #btnpapel, #btnpapel2{
+    margin-right:30%;
+  }
+  #btnjabon, #btnjabon2{
+    margin-left:30%;
+  }
+
+
+  /* ADMIN PAGES */
+  .admin-baños-title{
+    font-size: 5vw;
+  }
+  #admin-baños-reportados-sub,  #admin-baños-reportados-sub-jabon,  #admin-baños-reportados-sub-papel{
+    font-size: 3vw;
+  }
+
+  #btn-date{
+    
+  }
+
+  .input-date{
+    margin: 0%;
+    height: 100%;
+    width: 30%;
+    font-size: 3vw;
+  }
+
+  .btn-date{
+    font-size: 3vw;
+  }
 }

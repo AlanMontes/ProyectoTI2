@@ -1,17 +1,112 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import tec22 from '../Estacionamientoizquierda.svg';
+import tec2 from '../Estacionamientoderecha.svg';
+import NavEstacionamiento from './NavEstacionamiento';
+const RoutesearchDispEstacionamientos = process.env.VITE_SEARCHES_DISPESTACIONAMIENTO || "http://localhost:8000/searches/dispestacionamiento";
+
 
 function Estacionamiento() {
+
+
+  const [ estacionamientoSeleccionado, setestacionamientoSeleccionado] = useState(false);
+  const [navEstacionamiento, setShowEstacionamiento] = useState(false);
+  const [disponibilidad, setDisponibilidad] = useState([]);
+  
+  useEffect(() => {
+    const element = document.getElementById("cont-instructions-elements");
+    if (element) {
+      element.style.display = 'none';
+    }
+
+    const intervalId = setInterval(() => {
+      checkDisponibilidad();
+    }, 500);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+
+  const checkDisponibilidad = async() =>{    
+    const data = {
+      idestacionamiento: "1"
+    };
+        try {
+          const response = await fetch(`${RoutesearchDispEstacionamientos}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+
+          if (!response.ok) {
+            const responseData = await response.json();
+            alert(responseData.message); 
+            throw new Error('Error al realizar la solicitud');
+          }
+
+          const responseData = await response.json();
+          setDisponibilidad(responseData);
+        } catch (error) {
+          console.error('Error:', error);
+        }
+  }
+
+
+
+  const navEsta = (estacionamiento) => {
+    setestacionamientoSeleccionado(estacionamiento);
+    setShowEstacionamiento(!navEstacionamiento);
+  };
+  
+  function hideInstructions(){
+    if(document.getElementById("cont-instructions-elements").style.display === "none"){
+        document.getElementById("cont-instructions-elements").style.display = '';
+    }else{
+        document.getElementById("cont-instructions-elements").style.display = 'none';
+    }
+  }
+
+  function checkDispStyle(){
+      if(disponibilidad === true){
+         return "rgba(0, 255, 0, 0.527)";
+      }else if(disponibilidad === false){
+         return "rgba(255, 0, 0, 0.226)";
+      }else{
+         return "black";
+      }
+  }
+
+
   return (
-    <div>
-      <h2>Encuentra lugar en el estacionamiento</h2>
-      <h2>Estacionamientos libres: 7</h2>
-      <h2>Estacionamientos ocupados: 9</h2>
-      <div className="center-content">
-        <img src="/estacionamiento.png" alt=" " className="header-image-es" />
-        <h3>Rojo= ocupado</h3>
-        <h3>Verde= libre</h3>
-      </div>
-      {/* Aquí puedes agregar el contenido del componente de Baños */}
+    <div className='baños-container'>
+          <div className='content-titles-baños'>
+            <h2 className="h2">Estacionamientos</h2>
+            <h3 className='h3' >Identifica los cajones libres en los distintos estacionamientos del instituto</h3>
+            <div className="cont-instructions">
+                <div className='instructions' onClick={hideInstructions}>Ver instrucciones</div>
+            </div>
+            <div className="cont-instructions-elements" id="cont-instructions-elements">
+                <div className='instruction'><li>Seleccionar el estacionamiento (estacionamientos con lugares apareceran, "verdes" y sin lugar, "rojos")</li></div>
+                <div className='instruction'><li>Se abrira el estacionamiento seleccionado (cajones con lugares apareceran, "verdes" y sin lugar, "rojos")</li></div>
+            </div>
+          </div>
+        
+          <div className="center-content">
+            <div className='maps'>
+                <div style={{ position: 'relative' }}>
+                    <img src={tec22} alt=" " className="image-map" />
+                </div>  
+        
+                <div style={{ position: 'relative' }}>
+                    <img src={tec2} alt=" " className="image-map" />
+                    <div className="Alumnos1" title="Alumnos1" onClick={() => navEsta("Estacionamiento Alumnos 1")} style={{ background: checkDispStyle()}}></div>
+                </div>
+            </div>
+            {navEstacionamiento && <NavEstacionamiento closeModal={navEsta}  estacionamiento={estacionamientoSeleccionado} navEsta={navEsta}/>}
+          </div>
     </div>
   );
 }

@@ -34,11 +34,21 @@ function Admin() {
   return (
     <div className='body-gen'>
       <div className="header">
+        <div>
               <img src="/logotec.png" alt=" " className="logotec" />
-              <h1 className="title">InmotiTEC2 ADMIN</h1>
+        </div>
+        <div>
+              <h1 className="title" id="title">InmotiTEC2 ADMIN</h1>
+        </div>
+        <div>
               <button className="button-baños" onClick={handleClickPendientes}>Gestión de Baños</button>
+        </div>
+        <div>
               <button className="button-estacionamiento" onClick={handleClickBitacora}>Bitacora de reportes</button>
-              <button className="button-baños" onClick={handleClickExit}>Salir</button>
+        </div>
+        <div>
+              <button className="button-salir" onClick={handleClickExit}>Salir</button>
+        </div>
       </div>
 
       <div className="body-gen">
