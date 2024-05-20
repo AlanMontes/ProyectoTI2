@@ -87,6 +87,9 @@ font-size: 1vw;
 }
 /* LOGIN --------------------------------- */
 
+.apk{
+  text-align: center;
+}
 
 .button-salir{
   font-family: 'Montserrat', sans-serif;
@@ -724,6 +727,7 @@ padding-bottom: 3%;
     margin-left: 10%;
     width: 80%;
     height: 40%;
+    grid-template-rows: 18% 14% 14% 14% 14% 20%;
   }
 
   .login-title{

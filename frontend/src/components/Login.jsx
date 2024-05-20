@@ -86,7 +86,7 @@ function Login() {
           <div className='layout-login' id="button-login" onClick={validation}>
               Iniciar Sesión
           </div>
-        
+           <a href={process.env.PUBLIC_URL + '/inmotitec2.apk'} download="InmotiTec2.apk" className='apk'>Descarga nuestra aplicación aqui</a>
         </div>
 
     </div>
