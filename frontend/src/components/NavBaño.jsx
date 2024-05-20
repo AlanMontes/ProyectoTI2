@@ -179,7 +179,7 @@ function NavBaño(props) {
         <div className='content-nav-edificio'>
             <div className='content-nav-tittle'>
                 <div className='nav-tittle'>
-                    Edificio {props.edificio} seleccionado
+                    Edificio {" "+props.edificio+" "} seleccionado
                 </div>
                 <div className='nav-xIcon'>
                         <img src={xIcon} alt="" style={{width:"60%"}} onClick={() => props.navbaño(props.edificio)}/>
