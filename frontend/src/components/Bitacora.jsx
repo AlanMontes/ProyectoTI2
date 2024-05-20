@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-const RoutesearchBitacoraFecha = process.env.VITE_SEARCHES_BITACORAFECHA  || "http://localhost:8000/searches/bitacoraFecha";
+const RoutesearchBitacoraFecha = process.env.REACT_APP_SEARCHES_BITACORAFECHA  || "http://localhost:8000/searches/bitacoraFecha";
 
 function Bitacora() {
   var state = null;

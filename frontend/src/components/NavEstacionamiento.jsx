@@ -3,7 +3,7 @@ import xIcon from "../circle-xmark-solid.svg";
 import v from "../good.svg";
 import carro from "../carro.png";
 import { useEffect, useState } from 'react';
-const RoutesearchEstacionamiento = process.env.VITE_SEARCHES_ESTACIONAMIENTO || "http://localhost:8000/searches/estacionamiento";
+const RoutesearchEstacionamiento = process.env.REACT_APP_SEARCHES_ESTACIONAMIENTO || "http://localhost:8000/searches/estacionamiento";
 
 function NavEstacionamiento(props) {
 
