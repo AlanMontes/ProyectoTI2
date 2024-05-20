@@ -4,8 +4,8 @@ import male  from "../person-solid.svg"
 import female  from "../person-dress-solid.svg"
 import { useState } from 'react';
 import { useEffect } from 'react';
-const RoutesearchReporte = process.env.VITE_SEARCHES_REPORTE || "http://localhost:8000/searches/reporte";
-const RoutechangeReporte = process.env.VITE_CHANGES_REPORTE || "http://localhost:8000/changes/reporte";
+const RoutesearchReporte = process.env.REACT_APP_SEARCHES_REPORTE || "http://localhost:8000/searches/reporte";
+const RoutechangeReporte = process.env.REACT_APP_CHANGES_REPORTE || "http://localhost:8000/changes/reporte";
 
 
 function NavBaño(props) {

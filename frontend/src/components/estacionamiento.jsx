@@ -4,7 +4,7 @@ import { useState } from 'react';
 import tec22 from '../Estacionamientoizquierda.svg';
 import tec2 from '../Estacionamientoderecha.svg';
 import NavEstacionamiento from './NavEstacionamiento';
-const RoutesearchDispEstacionamientos = process.env.VITE_SEARCHES_DISPESTACIONAMIENTO || "http://localhost:8000/searches/dispestacionamiento";
+const RoutesearchDispEstacionamientos = process.env.REACT_APP_SEARCHES_DISPESTACIONAMIENTO || "http://localhost:8000/searches/dispestacionamiento";
 
 
 function Estacionamiento() {

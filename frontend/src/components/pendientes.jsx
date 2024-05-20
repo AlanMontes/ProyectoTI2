@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-const RoutesearchPendientes = process.env.VITE_SEARCHES_PENDIENTES || "http://localhost:8000/searches/pendientes";
-const RoutechangesSurtido = process.env.VITE_CHANGES_SURTIR || "http://localhost:8000/changes/surtido";
+const RoutesearchPendientes = process.env.REACT_APP_SEARCHES_PENDIENTES || "http://localhost:8000/searches/pendientes";
+const RoutechangesSurtido = process.env.REACT_APP_CHANGES_SURTIR || "http://localhost:8000/changes/surtido";
 
 
 function Pendientes() {
