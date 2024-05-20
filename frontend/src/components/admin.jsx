@@ -38,7 +38,7 @@ function Admin() {
               <img src="/logotec.png" alt=" " className="logotec" />
         </div>
         <div>
-              <h1 className="title" id="title">InmotiTEC2 ADMIN</h1>
+              <h1 className="title" id="title">InmotiTEC2 ADMIN </h1>
         </div>
         <div>
               <button className="button-baños" onClick={handleClickPendientes}>Gestión de Baños</button>
