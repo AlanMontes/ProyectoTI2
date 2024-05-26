@@ -21,8 +21,43 @@ POST http://localhost:8000/searches/bitacoraFecha
 Content-Type: application/json
 
 {
-    "date": "2024-05-15"
+    "date": "2024-05-25"
 }
+
+###
+#BUSCAR FALSOS
+POST http://localhost:8000/searches/buscarfalsos
+Content-Type: application/json
+
+{
+    "date": "2024-05-26"
+}
+
+###
+#BUSCAR REGISTROS IRREGULARES 
+POST http://localhost:8000/searches/bitacoraIrregulares
+Content-Type: application/json
+
+{
+    "date": "2024-05-25"
+}
+
+
+###
+#Reportar Falos
+POST http://localhost:8000/searches/FalsoReporte
+Content-Type: application/json
+
+{
+    "date": "2024-05-25",
+    "baño": "POS1",
+    "genero": "female",
+    "reporte": "jabon"
+}
+
+
+
+
 
 ###
 #Validar usuario

@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 import { itemsPool } from '../index.js';
-
+import moment from 'moment-timezone';
 
 //BUSCAR DISPONIBILIDAD DEL REPORTE
 router.post('/bitacoraFecha', async (req, res) => {
@@ -11,7 +11,73 @@ router.post('/bitacoraFecha', async (req, res) => {
 
         try {                                   
             const query1 = await itemsPool.query("select baños.baño, baños.genero , tiporegistro, fecha_hora, usuarios_tec.nocontrol as numeroControl from registro_reportes INNER JOIN usuarios_tec ON registro_reportes.fk_id_usuario = usuarios_tec.id_usuario INNER JOIN baños ON registro_reportes.fk_id_baño = baños.id_baño  WHERE DATE_TRUNC('day', fecha_hora) = $1;",[date]);
+            
+            query1.rows.forEach((row) => {
+                const fechaUTC = moment.utc(row.fecha_hora);
+                const fechaChihuahua = fechaUTC.clone().tz("America/Chihuahua");
+                row.fecha_hora = fechaChihuahua.format("YYYY-MM-DD HH:mm:ss");
+            });
+            
             res.status(200).json(query1.rows);
+        } catch (error) {
+            console.error('Error al obtener los registros:', error);
+            res.status(500).json({"message":"Error al obtener los registros"});
+        }  
+    }catch(error){
+        res.status(500).json({"message":"Error interno del servidor al obtener cabecera de datos"});
+    } 
+});
+
+//IRREGULARIDADES DE REPORTES
+router.post('/bitacoraIrregulares', async (req, res) => {
+    try{
+
+    const date = req.body.date;
+
+        try {                                   
+            const query1 = await itemsPool.query("select baños.baño, baños.genero , tiporegistro, fecha_hora, usuarios_tec.nocontrol as numeroControl from registro_reportes INNER JOIN usuarios_tec ON registro_reportes.fk_id_usuario = usuarios_tec.id_usuario INNER JOIN baños ON registro_reportes.fk_id_baño = baños.id_baño  WHERE DATE_TRUNC('day', fecha_hora) = $1;",[date]);
+            
+            // const contadorFechas = {};
+
+            query1.rows.forEach((row) => {
+                const fechaUTC = moment.utc(row.fecha_hora);
+                const fechaChihuahua = fechaUTC.clone().tz("America/Chihuahua");
+                row.fecha_hora = fechaChihuahua.format("YYYY-MM-DD");
+            });
+
+            // Función para comparar dos objetos y determinar si son iguales solo en las propiedades específicas
+            function sonIgualesEnPropiedades(obj1, obj2, propiedades) {
+                for (const propiedad of propiedades) {
+                if (obj1[propiedad] !== obj2[propiedad]) {
+                    return false;
+                }
+                }
+                return true;
+            }
+            
+            // Función para contar las repeticiones de combinaciones específicas de propiedades
+            function contarRepeticionesEspecificas(array, propiedades) {
+                const recuento = {};
+            
+                array.forEach((objeto) => {
+                const clave = JSON.stringify(propiedades.map(propiedad => objeto[propiedad]));
+                recuento[clave] = (recuento[clave] || 0) + 1;
+                });
+                
+                const combinacionesFiltradas = {};
+                for (const clave in recuento) {
+                  if (recuento[clave] >= 3) {
+                    combinacionesFiltradas[clave] = recuento[clave];
+                  }
+                }
+              
+                return combinacionesFiltradas;
+            }
+            
+            const propiedadesEspecificas = ["baño", "genero", "tiporegistro"];
+            const repeticiones = contarRepeticionesEspecificas(query1.rows, propiedadesEspecificas);
+
+            res.status(200).json(repeticiones);
         } catch (error) {
             console.error('Error al obtener los registros:', error);
             res.status(500).json({"message":"Error al obtener los registros"});
@@ -55,6 +121,51 @@ router.get('/pendientes', async (req, res) => {
 });
 
 
+//Reportar falso reporte
+router.post('/FalsoReporte', async (req, res) => {
+    try{
+
+    const date = req.body.date;
+    const baño = req.body.baño;
+    const genero = req.body.genero;
+    const reporte = req.body.reporte;
+            try {                                   
+                const query1 = await itemsPool.query("select usuarios_tec.nocontrol as numeroControl from registro_reportes INNER JOIN usuarios_tec ON registro_reportes.fk_id_usuario = usuarios_tec.id_usuario INNER JOIN baños ON registro_reportes.fk_id_baño = baños.id_baño  where date(fecha_hora) =  date($1) AND baño = $2 AND genero =$3  AND tiporegistro =$4 ORDER BY fecha_hora DESC LIMIT 1;",[date,baño,genero,reporte]);
+                const query2 = await itemsPool.query("select id_usuario from usuarios_tec where nocontrol = $1",[query1.rows[0].numerocontrol])
+                const query3 = await itemsPool.query("insert into falsos_reportes (fecha_hora,fk_id_usuario) values (date($1),$2);",[date,query2.rows[0].id_usuario])
+                res.status(200).json({"message":"Usuario reportado con falso reporte"});
+            } catch (error) {
+                console.error('Error al obtener los registros:', error);
+                res.status(500).json({"message":"Error al obtener los registros"});
+            }  
+    }catch(error){
+        res.status(500).json({"message":"Error interno del servidor al obtener cabecera de datos"});
+    } 
+});
+
+//Buscar falsos reportes
+router.post('/buscarFalsos', async (req, res) => {
+    try{
+
+    const date = req.body.date;
+
+        try {                                   
+            const query1 = await itemsPool.query("select id_falsoreporte, fecha_hora, usuarios_tec.nocontrol as numeroControl from falsos_reportes INNER JOIN usuarios_tec ON falsos_reportes.fk_id_usuario = usuarios_tec.id_usuario where date(fecha_hora) =  date($1);",[date]);
+            query1.rows.forEach((row) => {
+                const fechaUTC = moment.utc(row.fecha_hora);
+                const fechaChihuahua = fechaUTC.clone().tz("America/Chihuahua");
+                row.fecha_hora = fechaChihuahua.format("YYYY-MM-DD HH:mm:ss");
+            });
+            
+            res.status(200).json(query1.rows);
+        } catch (error) {
+            console.error('Error al obtener los registros:', error);
+            res.status(500).json({"message":"Error al obtener los registros"});
+        }  
+    }catch(error){
+        res.status(500).json({"message":"Error interno del servidor al obtener cabecera de datos"});
+    } 
+});
 
 
 //REGISTRO DE PETICIONES

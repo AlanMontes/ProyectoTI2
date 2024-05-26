@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import ReportesFalsos from './reportesFalsos.jsx';
-const RoutesearchBitacoraFecha = process.env.REACT_APP_SEARCHES_BITACORAFECHA  || "http://localhost:8000/searches/bitacoraFecha";
+const Routesearchreportesfalsos = process.env.REACT_APP_SEARCHES_BUSCARFALSOS  || "http://localhost:8000/searches/buscarfalsos";
 
-function Bitacora() {
+
+
+function ReportesFalsos() {
   var state = null;
   const [reportes, setReportes] = useState([]);
   const [fechaSeleccionada, setFechaSeleccionada] = useState(state);
@@ -25,7 +26,7 @@ function Bitacora() {
               date: fechaSeleccionada
             };
             try {
-              const response = await fetch(`${RoutesearchBitacoraFecha}`, {
+              const response = await fetch(`${Routesearchreportesfalsos}`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json'
@@ -52,16 +53,9 @@ function Bitacora() {
     var fecha = fecha_hora_objeto.toISOString().slice(0, 10);
     var hora = fecha_hora_objeto.toTimeString().slice(0, 8);
     // var fecha_hora_formateada = fecha + " " + hora;
-    return hora;
+    return fecha;
   }
 
-  function changeGender(gender){
-    if(gender === "male"){
-      return "Hombres"
-    }else{
-      return "Mujeres"
-    } 
-  }
 
   function setDate(){
       setFechaSeleccionada(document.getElementById("date").value);
@@ -69,27 +63,20 @@ function Bitacora() {
 
   return (
     <div className='admin-baños-content'>
-        <div  className='admin-baños-title'>Registro de los usuarios que reportaron</div>
+        <div  className='admin-baños-title'>Registro de los usuarios que realizaron falsos reportes</div>
         <div  className='admin-baños-title' id="btn-date">
         <input type="date" name="" id="date" className='input-date'/> <button className='btn-date' onClick={() =>{setDate()}}>Buscar</button>
         </div>
 
         <div className='admin-baños-content-reportados'>
-          <div className='admin-baños-reportados'>
-                <div id='admin-baños-reportados-sub'>Baño</div>
-                <div id='admin-baños-reportados-sub'>Genero</div>
-                <div id='admin-baños-reportados-sub'>Reporte</div>
-                <div id='admin-baños-reportados-sub'>Hora</div>
-                <div id='admin-baños-reportados-sub'>Estudiante</div>
+          <div className='admin-baños-reportados' id="falsos-columnas">
+                <div id='admin-baños-reportados-sub'>Fecha</div>
+                <div id='admin-baños-reportados-sub'>Numero de control</div>
           </div>
           {reportes && reportes.map((reporte, index) => (
-          <div className='admin-baños-reportados' key={index}>
-            
-                <div id='admin-baños-reportados-sub'>{reporte.baño}</div>
-                <div id='admin-baños-reportados-sub'>{changeGender(reporte.genero)}</div>
-                <div id='admin-baños-reportados-sub'>{reporte.tiporegistro}</div>
-                <div id='admin-baños-reportados-sub-jabon' >{changeDate(reporte.fecha_hora)}</div>
-                <div id='admin-baños-reportados-sub-papel' >{reporte.numerocontrol}</div>
+          <div className='admin-baños-reportados' key={index} id="falsos-columnas">
+                <div id='admin-baños-reportados-sub'>{changeDate(reporte.fecha_hora)}</div>
+                <div id='admin-baños-reportados-sub'>{reporte.numerocontrol}</div>
           </div>
         ))}
         </div>
@@ -98,4 +85,4 @@ function Bitacora() {
   );
 }
 
-export default Bitacora;
+export default ReportesFalsos;
