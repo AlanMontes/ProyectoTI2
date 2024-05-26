@@ -112,6 +112,12 @@ font-size: 1vw;
   align-items: center;
 }
 
+#header-admin{
+  display: grid;
+  grid-template-columns: 10% 20% 15% 18% 14% 14% 10%; /* Tamaños específicos para cada columna */
+  grid-gap: 1;
+}
+
 #header-login{
   display: grid;
   grid-template-columns: 20%  10%  35%  30%; /* Tamaños específicos para cada columna */
@@ -440,7 +446,7 @@ font-size: 1vw;
   justify-content: center;
   padding-left: 10%;
   color: rgb(0, 0, 122);
-  font-size: 3vw; 
+  font-size: 2.5vw; 
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -606,6 +612,17 @@ justify-content: center;
     grid-gap: 1;
 }
 
+#falsos-columnas{
+  display: grid;
+  grid-template-columns: 50% 50%; 
+  grid-gap: 1;
+}
+
+#admin-baños-reportados-irregulares{
+  display: grid;
+  grid-template-columns: 33% 33% 33%; 
+  grid-gap: 1;
+}
 
 #admin-baños-reportados-sub, #admin-baños-reportados-sub-jabon, #admin-baños-reportados-sub-papel{
   justify-self: center;
@@ -710,6 +727,15 @@ padding-bottom: 3%;
   justify-content: center;
 }
 
+.reportes-irregulares-ins{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1vw; 
+  font-family: 'Montserrat', sans-serif;
+  text-align: justify;
+}
+
 
 @media only screen and (max-width: 600px) {
 
@@ -752,8 +778,16 @@ padding-bottom: 3%;
     padding-bottom:3%;
   }
 
+
+  
+#header-admin{
+  display: grid;
+  grid-template-columns: 10% 18% 15% 19% 15% 16% 5%; /* Tamaños específicos para cada columna */
+  grid-gap: 1;
+}
+
   #title{
-    font-size: 4vw;
+    font-size: 3.5vw;
   }
 
   .button-baños{
@@ -874,5 +908,11 @@ padding-bottom: 3%;
     grid-template-rows: 15% 85%;
 }
 
+
+.reportes-irregulares-ins{
+
+  font-size: 2vw; 
+
+}
   
 }
